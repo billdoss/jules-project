@@ -1,0 +1,19 @@
+.payment-details-form {
+  border: 1px solid #eee;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: #555;
+  }
+  small {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #777;
+  }
+}
