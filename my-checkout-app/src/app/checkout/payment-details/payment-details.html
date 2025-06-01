@@ -1,0 +1,33 @@
+<div class="payment-details-form">
+  <h2>Payment Details</h2>
+  <form #paymentForm="ngForm">
+    <div class="form-group">
+      <label for="card-number">Card Number</label>
+      <input type="text" id="card-number" name="card-number" placeholder="Enter your card number"
+             [(ngModel)]="payment.cardNumber" #cardField="ngModel" required pattern="^[0-9]{16}$">
+      <div *ngIf="cardField.invalid && (cardField.dirty || cardField.touched)" class="alert alert-danger">
+        <div *ngIf="cardField.errors?.['required']">Card number is required.</div>
+        <div *ngIf="cardField.errors?.['pattern']">Card number must be 16 digits.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="expiry-date">Expiry Date (MM/YY)</label>
+      <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY"
+             [(ngModel)]="payment.expiryDate" #expiryField="ngModel" required pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$">
+      <div *ngIf="expiryField.invalid && (expiryField.dirty || expiryField.touched)" class="alert alert-danger">
+        <div *ngIf="expiryField.errors?.['required']">Expiry date is required.</div>
+        <div *ngIf="expiryField.errors?.['pattern']">Expiry date must be in MM/YY format.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="cvv">CVV</label>
+      <input type="text" id="cvv" name="cvv" placeholder="CVV"
+             [(ngModel)]="payment.cvv" #cvvField="ngModel" required pattern="^[0-9]{3,4}$">
+      <div *ngIf="cvvField.invalid && (cvvField.dirty || cvvField.touched)" class="alert alert-danger">
+        <div *ngIf="cvvField.errors?.['required']">CVV is required.</div>
+        <div *ngIf="cvvField.errors?.['pattern']">CVV must be 3 or 4 digits.</div>
+      </div>
+    </div>
+  </form>
+  <p><small>Payment processing is simulated for this demo.</small></p>
+</div>

@@ -1,0 +1,7 @@
+<div class="checkout-container">
+  <h1>Checkout</h1>
+  <app-customer-information></app-customer-information>
+  <app-order-summary></app-order-summary>
+  <app-payment-details></app-payment-details>
+  <button (click)="handlePlaceOrder()" [disabled]="!isCheckoutFormValid()">Place Order</button>
+</div>

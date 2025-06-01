@@ -1,0 +1,32 @@
+<div class="customer-info-form">
+  <h2>Customer Information</h2>
+  <form #customerForm="ngForm">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name"
+             [(ngModel)]="customer.name" #nameField="ngModel" required minlength="3">
+      <div *ngIf="nameField.invalid && (nameField.dirty || nameField.touched)" class="alert alert-danger">
+        <div *ngIf="nameField.errors?.['required']">Name is required.</div>
+        <div *ngIf="nameField.errors?.['minlength']">Name must be at least 3 characters long.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email"
+             [(ngModel)]="customer.email" #emailField="ngModel" required email>
+      <div *ngIf="emailField.invalid && (emailField.dirty || emailField.touched)" class="alert alert-danger">
+        <div *ngIf="emailField.errors?.['required']">Email is required.</div>
+        <div *ngIf="emailField.errors?.['email']">Please enter a valid email address.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="address">Shipping Address</label>
+      <textarea id="address" name="address" rows="3" placeholder="Enter your shipping address"
+                [(ngModel)]="customer.address" #addressField="ngModel" required minlength="10"></textarea>
+      <div *ngIf="addressField.invalid && (addressField.dirty || addressField.touched)" class="alert alert-danger">
+        <div *ngIf="addressField.errors?.['required']">Address is required.</div>
+        <div *ngIf="addressField.errors?.['minlength']">Address must be at least 10 characters long.</div>
+      </div>
+    </div>
+  </form>
+</div>
